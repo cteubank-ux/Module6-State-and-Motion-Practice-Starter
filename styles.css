@@ -125,7 +125,30 @@ header {
 .choice-help { 
     color:#444; 
 }
-/* TODO: focus and checked state with more than color. */
+
+
+.choice input:focus-visible + label {
+    outline: 3px solid var(--focus);
+    outline-offset: 3px;
+}
+
+.choice input:checked + label {
+    border: .2rem solid var(--brand);
+    background: linear-gradient(135deg, #fff, #fff3d1);
+    box-shadow: 0 .3rem .8rem rgb(140 29 64 / 18%);
+    position: relative;
+}
+
+.choice input:checked + label::after {
+    content: "✓";
+    position: absolute;
+    top: .5rem;
+    right: .65rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--brand);
+}
+
 
 summary { 
     cursor:pointer; 
