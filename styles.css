@@ -63,12 +63,19 @@ header {
                 transform .2s ease;
 }
 
+
 .action::after {
-    content: " →";
+    content: "";
     display: inline-block;
-    margin-inline-start: .4rem;
+    width: .55rem;
+    height: .55rem;
+    margin-inline-start: .5rem;
+    border-top: 2px solid currentColor;
+    border-right: 2px solid currentColor;
+    transform: rotate(45deg);
     transition: transform .2s ease;
 }
+
 
 .action:hover {
     background: var(--brand);
