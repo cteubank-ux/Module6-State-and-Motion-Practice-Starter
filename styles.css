@@ -45,14 +45,50 @@ header {
 
 .action { 
     display:inline-block; 
-    padding:.75rem 1rem; /* TODO: default action style and explicit transitions. */ 
+    padding:.75rem 1rem; 
+
+.action {
+    display: inline-block;
+    padding: .75rem 1rem;
+    color: var(--paper);
+    background: linear-gradient(135deg, var(--brand), #64132e);
+    border: 2px solid var(--brand);
+    border-radius: .4rem;
+    box-shadow: 0 .25rem .5rem rgb(0 0 0 / 15%);
+    text-decoration: none;
+    font-weight: 700;
+    transition: background-color .2s ease,
+                color .2s ease,
+                box-shadow .2s ease,
+                transform .2s ease;
 }
 
-.action::after { 
-    /* TODO: nonessential decorative cue; keep content empty. */ 
+.action::after {
+    content: " →";
+    display: inline-block;
+    margin-inline-start: .4rem;
+    transition: transform .2s ease;
 }
 
-/* TODO: hover, focus-visible, and active action states. */
+.action:hover {
+    background: var(--brand);
+    box-shadow: 0 .4rem .8rem rgb(0 0 0 / 25%);
+}
+
+.action:hover::after {
+    transform: translateX(.2rem);
+}
+
+.action:focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 4px;
+}
+
+.action:active {
+    transform: translateY(2px);
+    box-shadow: 0 .1rem .2rem rgb(0 0 0 / 15%);
+}
+
 
 .choice { 
     display:grid; 
