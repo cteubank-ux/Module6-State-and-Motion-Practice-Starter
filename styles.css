@@ -115,7 +115,10 @@ header {
     gap:.1rem; 
     padding:.75rem; 
     border:.15rem solid #777; 
-    border-radius:.4rem; 
+    border-radius:.4rem;
+    transition: background-color .2s ease,
+            border-color .2s ease,
+            box-shadow .2s ease; 
 }
 
 .choice-title { 
@@ -160,6 +163,35 @@ summary {
     padding:1rem; 
 }
 
-/* TODO: add purposeful gradients/shadows/filters/masks/blending across specimens. */
-/* TODO: define and trigger one short, finite keyframe animation. */
-/* TODO: add a prefers-reduced-motion strategy that preserves feedback. */
+
+details[open] .confirmation {
+    animation: disclosure-reveal .35s ease-out 1 both;
+    background: linear-gradient(135deg, var(--paper), var(--surface));
+    border-left: .25rem solid var(--brand);
+    border-radius: .4rem;
+    box-shadow: 0 .3rem .8rem rgb(0 0 0 / 12%);
+}
+
+@keyframes disclosure-reveal {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+    .action,
+    .action::after {
+        transition: none;
+    }
+
+    details[open] .confirmation {
+        animation: none;
+    }
+}
